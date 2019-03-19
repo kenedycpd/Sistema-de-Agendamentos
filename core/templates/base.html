@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,20 +54,18 @@
                 </button>
 
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="/"><i class="fa fa-home fa-fw"></i>Impire Software</a></li>
+                    <li><a href="/"><i class="fa fa-home fa-fw"></i>Impire Software - {{data}}</a></li>
                 </ul>
                     <ul class="nav navbar-nav navbar-right navbar-top-links">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                            <i class="fa fa-user fa-fw"></i>{%if user.is_authenticated%}{{user.get_full_name}}{%endif%}<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
                             
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="{% url 'logout_user' %}"><i class="fa fa-sign-out fa-fw"></i>Sair</a>
                             </li>
                         </ul>
                     </li>
